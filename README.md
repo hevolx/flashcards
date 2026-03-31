@@ -47,7 +47,7 @@ dispatch(addQuiz({ id: '1', name: 'Algebra', topicId: '1', cardIds: [] }));
 ```bash
 # Clone the repo
 git clone <repo-url>
-cd flashcards-starting-code-react-v18
+cd flashcards
 
 # Install dependencies
 npm install
