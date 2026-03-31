@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 // import selectors
-import { selectTopics } from '../features/topics/topicsSlice';
+import { selectTopics, addQuizIdToTopic } from '../features/topics/topicsSlice';
 import { addQuiz } from '../features/quizzes/quizzesSlice';
 import { addCard } from '../features/cards/cardsSlice';
 
@@ -49,6 +49,7 @@ export default function NewQuizForm() {
       topicId: topicId,
       cardIds: cardIds
     }));
+    dispatch(addQuizIdToTopic({ topicId, quizId }));
     navigate(ROUTES.quizzesRoute())
   };
 

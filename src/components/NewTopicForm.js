@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { ALL_ICONS } from "../data/icons";
 // import addTopic
-import { addTopic, addQuizIdToTopic } from '../features/topics/topicsSlice';
+import { addTopic } from '../features/topics/topicsSlice';
 
 /**
  * Form for creating a new topic with a name and icon.
@@ -24,12 +24,12 @@ export default function NewTopicForm() {
     }
 
     // dispatch new topic
+    const id = uuidv4();
     dispatch(addTopic({
-      id: uuidv4(),
+      id: id,
       name: name,
       icon: icon
     }));
-    dispatch(addQuizIdToTopic({ topicId, quizId }));
     navigate(ROUTES.topicsRoute());
   };
 
