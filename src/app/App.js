@@ -14,7 +14,7 @@ import AppLayout from "./AppLayout";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/projects/flashcards">
       <Routes>
       <Route path="/" element={<AppLayout/>}>
     <Route path="topics" element={<Topics/>}/>
