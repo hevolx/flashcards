@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Flashcards
+A React application for creating and managing flashcards organized into topics and quizzes.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Motivation
+Built as a learning project to practice React with Redux Toolkit and React Router. The goal is to understand how to structure state using Redux slices and navigate between views with React Router v6.
 
-## Available Scripts
+## Build status
+_Not configured._
 
-In the project directory, you can run:
+## Code style
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-### `npm start`
+## Screenshots
+![starting page showing a button for creating topics](images/image1.png)
+![adding a new topic with the icon "grill" and title "food"](images/image2.png)
+![back at the starting page the newly created topic is displayed](images/image3.png)
+![inside the new topic we create a new quiz about what food is best on the grill](images/image4.png)
+![after creating the quiz it is displayed as a flashcard](images/image5.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Tech/framework used
+<b>Built with</b>
 
-### `npm test`
+- [React 18](https://react.dev)
+- [Redux Toolkit](https://redux-toolkit.js.org)
+- [React Redux](https://react-redux.js.org)
+- [React Router v6](https://reactrouter.com)
+- [Create React App](https://create-react-app.dev)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
+- Create topics with an associated icon
+- Create quizzes linked to a topic
+- Add flashcards (front/back) to a quiz
+- Navigate between topics and quizzes
+- Global state managed with Redux Toolkit (topics, quizzes, cards)
 
-### `npm run build`
+## Code Example
+```js
+// Add a topic via Redux action
+dispatch(addTopic({ id: '1', name: 'Mathematics', icon: '📐' }));
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+// Add a quiz linked to a topic
+dispatch(addQuiz({ id: '1', name: 'Algebra', topicId: '1', cardIds: [] }));
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Installation
+```bash
+# Clone the repo
+git clone <repo-url>
+cd flashcards-starting-code-react-v18
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Install dependencies
+npm install
 
-### `npm run eject`
+# Start the development server
+npm start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## API Reference
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+No external APIs are used. State is managed locally via the Redux store with three slices:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+| Slice | Actions |
+|-------|---------|
+| `topicsSlice` | `addTopic` |
+| `quizzesSlice` | `addQuiz` |
+| `cardsSlice` | `addCard` |
 
-## Learn More
+## Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+_No tests implemented in this project._
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## How to use?
 
-### Code Splitting
+1. Navigate to **Topics** and create a new topic with a name and icon
+2. Go to **Quizzes** and create a new quiz linked to a topic
+3. Add flashcards (front and back) to the quiz
+4. Browse quizzes and topics using the navigation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contribute
 
-### Analyzing the Bundle Size
+This is a personal learning project and does not accept external contributions.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Credits
 
-### Making a Progressive Web App
+Boilerplate and project structure provided by [Codecademy](https://www.codecademy.com).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+This project was built as part of Codecademy learning exercise.
+The starter code is property of Codecademy
