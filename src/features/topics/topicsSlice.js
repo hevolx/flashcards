@@ -11,7 +11,12 @@ export const topicsSlice = createSlice({
     addTopic: (state, action) => {
       state.topics[action.payload.id] = { ...action.payload, quizIds: [] }
     },
-
+    addQuizIdToTopic: (state, action) => {
+      const { topicId, quizId } = action.payload;
+      if (state.topics[topicId]) {
+        state.topics[topicId].quizIds.push(quizId);
+      }
+    }
   }
 })
 
