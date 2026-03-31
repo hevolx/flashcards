@@ -7,6 +7,10 @@ import { ALL_ICONS } from "../data/icons";
 // import addTopic
 import { addTopic, addQuizIdToTopic } from '../features/topics/topicsSlice';
 
+/**
+ * Form for creating a new topic with a name and icon.
+ * Dispatches addTopic on submit, then navigates to /topics.
+ */
 export default function NewTopicForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");

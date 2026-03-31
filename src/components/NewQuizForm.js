@@ -8,6 +8,10 @@ import { selectTopics } from '../features/topics/topicsSlice';
 import { addQuiz } from '../features/quizzes/quizzesSlice';
 import { addCard } from '../features/cards/cardsSlice';
 
+/**
+ * Form for creating a new quiz with a name, topic, and one or more flashcards.
+ * Dispatches addCard and addQuiz actions on submit, then navigates to /quizzes.
+ */
 export default function NewQuizForm() {
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);

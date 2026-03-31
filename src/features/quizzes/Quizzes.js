@@ -6,6 +6,9 @@ import ROUTES from "../../app/routes";
 import { selectQuizzes } from './quizzesSlice';
 
 
+/**
+ * Displays a list of all quizzes with links to each quiz's detail page.
+ */
 export default function Quizzes() {
   const quizzes = useSelector(selectQuizzes);
   return (

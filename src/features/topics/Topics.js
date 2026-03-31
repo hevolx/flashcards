@@ -5,6 +5,9 @@ import ROUTES from "../../app/routes";
 import { selectTopics } from './topicsSlice';
 import { useSelector } from 'react-redux';
 
+/**
+ * Displays a list of all topics with links to each topic's detail page.
+ */
 export default function Topics() {
   const topics = useSelector(selectTopics);
 

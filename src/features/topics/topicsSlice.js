@@ -20,7 +20,11 @@ export const topicsSlice = createSlice({
   }
 })
 
-// selector
+/**
+ * Selects all topics from the Redux state.
+ * @param {object} state - The Redux state
+ * @returns {object} Topics keyed by id
+ */
 export const selectTopics = state => state.topics.topics;
 
 // action creators

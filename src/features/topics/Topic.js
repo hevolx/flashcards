@@ -6,6 +6,10 @@ import ROUTES from "../../app/routes";
 import { selectQuizzes } from '../quizzes/quizzesSlice';
 import { selectTopics } from './topicsSlice';
 
+/**
+ * Displays a single topic and its associated quizzes.
+ * Redirects to /topics if the topic does not exist.
+ */
 export default function Topic() {
   const topics = useSelector(selectTopics);
   const quizzes = useSelector(selectQuizzes);

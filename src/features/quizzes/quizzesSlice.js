@@ -14,7 +14,11 @@ export const quizzesSlice = createSlice({
   }
 })
 
-// selector
+/**
+ * Selects all quizzes from the Redux state.
+ * @param {object} state - The Redux state
+ * @returns {object} Quizzes keyed by id
+ */
 export const selectQuizzes = state => state.quizzes.quizzes;
 
 // action creators

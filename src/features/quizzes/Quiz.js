@@ -7,6 +7,10 @@ import ROUTES from "../../app/routes";
 import { selectQuizzes } from './quizzesSlice';
 
 
+/**
+ * Displays a single quiz and its flashcards.
+ * Redirects to /quizzes if the quiz does not exist.
+ */
 export default function Quiz() {
   const quizzes = useSelector(selectQuizzes);
   const { quizId } = useParams();

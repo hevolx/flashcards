@@ -14,7 +14,12 @@ export const cardsSlice = createSlice({
   }
 })
 
-// selector
+/**
+ * Selects a single card from the Redux state by id.
+ * @param {object} state - The Redux state
+ * @param {string} id - The card id
+ * @returns {object} The card object
+ */
 export const selectCards = (state, id) => state.cards.cards[id];
 
 // action creators
