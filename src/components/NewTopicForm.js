@@ -1,11 +1,16 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 import { ALL_ICONS } from "../data/icons";
 // import addTopic
+import { addTopic } from '../features/topics/topicsSlice';
 
+/**
+ * Form for creating a new topic with a name and icon.
+ * Dispatches addTopic on submit, then navigates to /topics.
+ */
 export default function NewTopicForm() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
@@ -19,6 +24,12 @@ export default function NewTopicForm() {
     }
 
     // dispatch new topic
+    const id = uuidv4();
+    dispatch(addTopic({
+      id: id,
+      name: name,
+      icon: icon
+    }));
     navigate(ROUTES.topicsRoute());
   };
 

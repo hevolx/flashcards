@@ -4,13 +4,20 @@ import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import ROUTES from "../app/routes";
 // import selectors
+import { selectTopics, addQuizIdToTopic } from '../features/topics/topicsSlice';
+import { addQuiz } from '../features/quizzes/quizzesSlice';
+import { addCard } from '../features/cards/cardsSlice';
 
+/**
+ * Form for creating a new quiz with a name, topic, and one or more flashcards.
+ * Dispatches addCard and addQuiz actions on submit, then navigates to /quizzes.
+ */
 export default function NewQuizForm() {
   const [name, setName] = useState("");
   const [cards, setCards] = useState([]);
   const [topicId, setTopicId] = useState("");
   const navigate = useNavigate();
-  const topics = {};  // Replace with topics 
+  const topics = useSelector(selectTopics);
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
@@ -20,14 +27,29 @@ export default function NewQuizForm() {
     }
 
     const cardIds = [];
-
     // create the new cards here and add each card's id to cardIds
     // create the new quiz here
+    cards.forEach((card) => {
+      const cardId = uuidv4();
+      dispatch(addCard({
+        id: cardId,
+        front: card.front,
+        back: card.back
+      }));
+      cardIds.push(cardId);
+    });
+
 
     const quizId = uuidv4();
 
-    // dispatch add quiz action 
-
+    // dispatch add quiz action
+    dispatch(addQuiz({
+      id: quizId,
+      name: name,
+      topicId: topicId,
+      cardIds: cardIds
+    }));
+    dispatch(addQuizIdToTopic({ topicId, quizId }));
     navigate(ROUTES.quizzesRoute())
   };
 
